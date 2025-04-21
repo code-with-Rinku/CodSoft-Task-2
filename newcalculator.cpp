@@ -13,12 +13,7 @@ public:
         return x * y;
     }
     double div(double x, double y) {
-        if (y != 0) {
-            return x / y;
-        } else {
-            cout << "Error! Division by 0 is not allowed!" << endl;
-            return 0;
-        }
+            return x / y;  
     }
 };
 
@@ -27,10 +22,7 @@ int main() {
     double first, second;
     int choice;
 
-    cout << "Enter the first number: ";
-    cin >> first;
-    cout << "Enter the second number: ";
-    cin >> second;
+   
 
     do {
         cout << "\n==== Calculator Menu ====\n";
@@ -42,6 +34,11 @@ int main() {
         cout << "6. Exit\n";
         cout << "Choose your option: ";
         cin >> choice;
+        
+    cout << "Enter the first number: ";
+    cin >> first;
+    cout << "Enter the second number: ";
+    cin >> second;
 
         switch (choice) {
             case 1:
@@ -54,7 +51,13 @@ int main() {
                 cout << first << " * " << second << " = " << obj.mul(first, second) << endl;
                 break;
             case 4:
+            	if(second==0){
+            		cout<<"Divison By Zero Not Possible\n";
+            		break;
+				}
+				else{
                 cout << first << " / " << second << " = " << obj.div(first, second) << endl;
+            }
                 break;
             case 5:
                 cout << "Enter new first number: ";
@@ -73,4 +76,3 @@ int main() {
 
     return 0;
 }
-
