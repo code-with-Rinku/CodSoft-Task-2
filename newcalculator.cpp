@@ -13,16 +13,13 @@ public:
         return x * y;
     }
     double div(double x, double y) {
-            return x / y;  
+        return x / y;  
     }
 };
 
 int main() {
-    Calculator obj;
-    double first, second;
     int choice;
-
-   
+    Calculator obj;
 
     do {
         cout << "\n==== Calculator Menu ====\n";
@@ -30,49 +27,42 @@ int main() {
         cout << "2. Subtraction\n";
         cout << "3. Multiplication\n";
         cout << "4. Division\n";
-        cout << "5. Enter new numbers\n";
-        cout << "6. Exit\n";
+        cout << "5. Exit\n";
         cout << "Choose your option: ";
         cin >> choice;
-        
-    cout << "Enter the first number: ";
-    cin >> first;
-    cout << "Enter the second number: ";
-    cin >> second;
 
-        switch (choice) {
-            case 1:
-                cout << first << " + " << second << " = " << obj.add(first, second) << endl;
-                break;
-            case 2:
-                cout << first << " - " << second << " = " << obj.sub(first, second) << endl;
-                break;
-            case 3:
-                cout << first << " * " << second << " = " << obj.mul(first, second) << endl;
-                break;
-            case 4:
-            	if(second==0){
-            		cout<<"Divison By Zero Not Possible\n";
-            		break;
-				}
-				else{
-                cout << first << " / " << second << " = " << obj.div(first, second) << endl;
+        if (choice >= 1 && choice <= 4) {
+            double first, second;
+            cout << "Enter the first number: ";
+            cin >> first;
+            cout << "Enter the second number: ";
+            cin >> second;
+
+            switch (choice) {
+                case 1:
+                    cout << first << " + " << second << " = " << obj.add(first, second) << endl;
+                    break;
+                case 2:
+                    cout << first << " - " << second << " = " << obj.sub(first, second) << endl;
+                    break;
+                case 3:
+                    cout << first << " * " << second << " = " << obj.mul(first, second) << endl;
+                    break;
+                case 4:
+                    if (second == 0) {
+                        cout << "Division by zero is not allowed.\n";
+                    } else {
+                        cout << first << " / " << second << " = " << obj.div(first, second) << endl;
+                    }
+                    break;
             }
-                break;
-            case 5:
-                cout << "Enter new first number: ";
-                cin >> first;
-                cout << "Enter new second number: ";
-                cin >> second;
-                break;
-            case 6:
-                cout << "Thanks for using the calculator. Goodbye!\n";
-                break;
-            default:
-                cout << "Invalid choice. Please try again.\n";
+        } else if (choice == 5) {
+            cout << "Thanks for using the calculator. Goodbye!\n";
+        } else {
+            cout << "Invalid choice. Please try again.\n";
         }
 
-    } while (choice != 6);
+    } while (choice != 5);
 
     return 0;
 }
